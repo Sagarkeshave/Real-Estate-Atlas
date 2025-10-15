@@ -1,2 +1,6 @@
+# .gitattributes
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.sqlite3 filter=lfs diff=lfs merge=lfs -text
+vectore_DB/chroma_langchain_DB/** filter=lfs diff=lfs merge=lfs -text
 vectore_DB/chroma_langchain_DB/7bb44584-a7da-4683-815d-9eac921ec222/data_level0.bin filter=lfs diff=lfs merge=lfs -text
 vectore_DB/chroma_langchain_DB/chroma.sqlite3 filter=lfs diff=lfs merge=lfs -text
