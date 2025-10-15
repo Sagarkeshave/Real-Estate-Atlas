@@ -12,6 +12,7 @@ langchain-chroma
 langchain-google-genai
 langchain-huggingface
 gunicorn
+langchain_groq 
 
 # Embeddings & Models
 sentence-transformers

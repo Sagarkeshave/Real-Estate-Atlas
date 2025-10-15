@@ -18,16 +18,30 @@ load_dotenv()
 
 ROOT_DIR = os.getenv("ROOT_DIR") 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+groq_api_key = os.getenv("GROK_API_KEY")
 # print("GOOGLE_API_KEY", GOOGLE_API_KEY)
 
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
 collection_name = "NoBrokerDB"
 persist_directory = os.path.join(os.getcwd(),'vectore_DB', 'chroma_langchain_DB')
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
+from langchain_groq import ChatGroq
+
+
+# llm = ChatGoogleGenerativeAI(
+#     model="gemini-2.5-flash",
+#     temperature=0,
+#     google_api_key = GOOGLE_API_KEY)
+
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
     temperature=0,
-    google_api_key = GOOGLE_API_KEY)
+    groq_api_key = groq_api_key)
+
+vector_store = Chroma(collection_name=collection_name, 
+            embedding_function=embeddings, persist_directory=persist_directory) 
+
+retriever = vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 10}) #vector_store._collection.count()
 
 memory = ConversationBufferWindowMemory(k=5, memory_key="chat_history", return_messages=True)
 
@@ -37,10 +51,7 @@ def get_response(query):
     """
     
     try:
-        vector_store = Chroma(collection_name=collection_name, 
-            embedding_function=embeddings, persist_directory=persist_directory)  
-        
-        retriever = vector_store.as_retriever(search_type="similarity", search_kwargs={"k": vector_store._collection.count()})
+         
         retrieved_docs = retriever.invoke(query) 
 
         # properties = "\n".join([doc.page_content for doc in retrieved_docs])
@@ -116,27 +127,73 @@ def get_response(query):
 
 if __name__ == '__main__':
 
+    import time
+
+    # Assuming get_response is a defined function that takes a query and returns a response and retrieved_docs
+
+    # --- Test Case 1 ---
     query = "Show me flats above 90 Cr in Pune city"
+    start_time = time.time()
+    response, retrieved_docs = get_response(query)
+    end_time = time.time()
+    duration = end_time - start_time
+
+    print(f"Len of docs {len(retrieved_docs)}")
+    print(f"QUERY:-- {query} \n ANSWER: -- {response}")
+    print(f"Time taken: {duration:.4f} seconds")
+    print("-" * 30)
+
+    # --- Test Case 2 ---
     query = 'Please list me properties near dehu road.'
+    start_time = time.time()
+    response, retrieved_docs = get_response(query)
+    end_time = time.time()
+    duration = end_time - start_time
+
+    print(f"Len of docs {len(retrieved_docs)}")
+    print(f"QUERY:-- {query} \n ANSWER: -- {response}")
+    print(f"Time taken: {duration:.4f} seconds")
+    print("-" * 30)
+
+    # --- Test Case 3 ---
     query = 'Give me all projects of Ashwini Builder'
-
+    start_time = time.time()
     response, retrieved_docs = get_response(query)
+    end_time = time.time()
+    duration = end_time - start_time
 
     print(f"Len of docs {len(retrieved_docs)}")
-    print(f"QUERY:-- {query} \n ANSWER: -- {response}") 
+    print(f"QUERY:-- {query} \n ANSWER: -- {response}")
+    print(f"Time taken: {duration:.4f} seconds")
+    print("-" * 30)
 
-    # Test Memory
+
+    # --- Test Memory - Case 1 ---
     query = 'My name is Sagar Keshave'
+    start_time = time.time()
     response, retrieved_docs = get_response(query)
+    end_time = time.time()
+    duration = end_time - start_time
 
     print(f"Len of docs {len(retrieved_docs)}")
-    print(f"QUERY:-- {query} \n ANSWER: -- {response}") 
+    print(f"QUERY:-- {query} \n ANSWER: -- {response}")
+    print(f"Time taken: {duration:.4f} seconds")
+    print("-" * 30)
 
+
+    # --- Test Memory - Case 2 ---
     query = 'What is my name'
+    start_time = time.time()
     response, retrieved_docs = get_response(query)
+    end_time = time.time()
+    duration = end_time - start_time
 
     print(f"Len of docs {len(retrieved_docs)}")
-    print(f"QUERY:-- {query} \n ANSWER: -- {response}") 
+    print(f"QUERY:-- {query} \n ANSWER: -- {response}")
+    print(f"Time taken: {duration:.4f} seconds")
+    print("-" * 30)
+
+# NOTE: You must ensure 'get_response' function is defined and the 'time' module is imported for this code to run.
 
     # queries = [
     # "Show me flats above 90 Cr in Pune city",
