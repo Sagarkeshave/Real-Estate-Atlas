@@ -11,9 +11,11 @@ langchain-core
 langchain-chroma
 langchain-google-genai
 langchain-huggingface
+gunicorn
 
 # Embeddings & Models
 sentence-transformers
 
 # Environment Variables
 python-dotenv 
+
