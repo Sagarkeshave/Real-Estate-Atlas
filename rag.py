@@ -121,7 +121,7 @@ def get_response(query):
         return response, retrieved_docs
     except Exception as e:
         print(f"Error in get_response {e}")
-        return "Error in get_response", None
+        return f"Error in get_response {e}", None
     
 
 

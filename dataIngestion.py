@@ -74,8 +74,8 @@ if __name__ == '__main__':
     ### Only run once
     ## Un comment to 1st time vectore DB formtaion. 
     # #Generating Vector DB
-    rVal, vector_store = create_vdb()
-    print("rVal=", rVal)  
+    # rVal, vector_store = create_vdb()
+    # print("rVal=", rVal)  
 
     # TESt data-ingestion
     vector_store = Chroma(collection_name=collection_name,
