@@ -1,0 +1,19 @@
+# Web Frameworks
+flask
+streamlit
+
+# Data Handling
+pandas
+
+# LangChain Core & Community
+langchain
+langchain-core
+langchain-chroma
+langchain-google-genai
+langchain-huggingface
+
+# Embeddings & Models
+sentence-transformers
+
+# Environment Variables
+python-dotenv 

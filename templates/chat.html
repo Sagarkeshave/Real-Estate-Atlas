@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏡 NoBroker Chat Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- <div class="chat-header">
+            <h2> Atlas 🤖 </h2>
+            <h3> Your smart way home</h3>
+            <span>Your smart way home</span>
+        </div> -->
+
+       <div class="chat-header" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    padding: 36px 0 20px 0; /* ⬅ increased top padding to push text downward */
+    border-bottom: 2px solid #334155;
+    margin-bottom: 12px; /* adds a clean gap before the chat box */
+">
+    <h2 style="font-size: 1.8rem; margin: 0; letter-spacing: 1px;">Atlas 🤖 </h2>
+    <span style="
+        font-size: 0.95rem;
+        color: #94a3b8;
+        margin-top: 4px;
+        font-style: italic;
+        letter-spacing: 0.5px;
+    ">Guiding you to your dream home.</span>
+</div>
+
+
+        <div id="chat-box" class="chat-box"></div>
+
+
+        <div class="chat-input">
+            <input id="user-input" type="text" placeholder="Type a message...">
+            <button id="send-btn">➤</button>
+        </div>
+    </div>
+    <div class="powered-by">
+    <span>⚡ Powered by <strong>NoBroker Company</strong></span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- <script> marked.setOptions({ breaks: true });</script> -->
+    <script>
+    marked.setOptions({
+        breaks: true, // treat \n as <br>
+        gfm: true,
+    });
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
