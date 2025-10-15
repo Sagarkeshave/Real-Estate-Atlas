@@ -114,8 +114,6 @@ if __name__ == '__main__':
 
     import time
 
-    # Assuming get_response is a defined function that takes a query and returns a response and retrieved_docs
-
     # --- Test Case 1 ---
     query = "Show me flats above 90 Cr in Pune city"
     start_time = time.time()
@@ -165,7 +163,6 @@ if __name__ == '__main__':
     print(f"Time taken: {duration:.4f} seconds")
     print("-" * 30)
 
-
     # --- Test Memory - Case 2 ---
     query = 'What is my name'
     start_time = time.time()
@@ -177,45 +174,3 @@ if __name__ == '__main__':
     print(f"QUERY:-- {query} \n ANSWER: -- {response}")
     print(f"Time taken: {duration:.4f} seconds")
     print("-" * 30)
-
-# NOTE: You must ensure 'get_response' function is defined and the 'time' module is imported for this code to run.
-
-    # queries = [
-    # "Show me flats above 90 Cr in Pune city",
-    # "Please list me properties near Dehu Road.",
-    # "Give me all projects of Ashwini Builder",
-    # "I want properties below 2 Cr ready to move near Baner side"
-    # ]
-
-    # # Path for storing results
-    # output_file = "temp_dir/test_dir/query_responses.csv"
-
-    # # Initialize an empty DF
-    # if not os.path.exists(output_file):
-    #     df = pd.DataFrame(columns=["Query", "Answer", "Num_Retrieved_Docs"])
-    # else:
-    #     df = pd.read_csv(output_file)
-
-    # # Loop through all queries
-    # for query in queries:
-    #     try:
-    #         response, retrieved_docs = get_response(query)
-
-    #         # Prepare a row for CSV
-    #         new_row = {
-    #             "Query": query,
-    #             "Answer": response,
-    #             "Num_Retrieved_Docs": len(retrieved_docs)
-    #         }
-
-    #         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
-
-    #         print(f"Completed: {query}")
-    #         print(f"Response: {response}")
-
-    #     except Exception as e:
-    #         print(f"Error processing '{query}': {e}")
-
-    # # Save DF
-    # df.to_csv(output_file, index=False)
-    # print(f"\nAll results saved to '{output_file}'")
