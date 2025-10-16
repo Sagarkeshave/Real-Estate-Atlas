@@ -20,6 +20,23 @@ Flask application for real-estate insights and conversational assistance, powere
 🎥 **Demo Video Streamlit:** [Watch on Loom](https://www.loom.com/share/bd7c30249dc04c30b707596202710e30?sid=71a85c93-4f54-4dab-8c48-ae686f16296e)
 
 ---
+<br>
+<br>
+
+![Image1](UI_images\image_1.png) 
+
+<br>
+<br>
+
+![Image2](UI_images\image_2.png) 
+
+<br>
+<br>
+
+![Image3](UI_images\image_3.png) 
+
+<br>
+<br>
 
 ## About
 
