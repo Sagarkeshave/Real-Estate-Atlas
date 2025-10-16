@@ -23,17 +23,17 @@ Flask application for real-estate insights and conversational assistance, powere
 <br>
 <br>
 
-![Image1](UI_images\image_1.png) 
+![Image1](UI_images/image_1.png) 
 
 <br>
 <br>
 
-![Image2](UI_images\image_2.png) 
+![Image2](UI_images/image_2.png) 
 
 <br>
 <br>
 
-![Image3](UI_images\image_3.png) 
+![Image3](UI_images/image_3.png) 
 
 <br>
 <br>
