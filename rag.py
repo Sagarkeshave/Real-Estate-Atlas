@@ -36,14 +36,16 @@ from langchain_groq import ChatGroq
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
     temperature=0,
-    groq_api_key = groq_api_key)
+    groq_api_key = groq_api_key) 
+
 
 vector_store = Chroma(collection_name=collection_name, 
             embedding_function=embeddings, persist_directory=persist_directory) 
 
-retriever = vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 10}) #vector_store._collection.count()
+retriever = vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 25}) #vector_store._collection.count()
 
 memory = ConversationBufferWindowMemory(k=3, memory_key="chat_history", return_messages=True)
+
 
 def get_response(query): 
     """   

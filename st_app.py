@@ -15,10 +15,10 @@ st.markdown("Your AI campanion to find you; your dream home.!")
 with st.sidebar:
     st.header("💬 Example Queries")
     st.markdown("""
-    - Show me flats above 90 Cr in Pune city  
-    - Please list me properties near Dehu Road  
-    - Give me all projects of Ashwini Builder  
-    - I want properties below 2 Cr ready to move near Baner side  
+    - Show me flats above 90 Cr in Pune city. 
+    - I am looking for 1BHK flats near Dehu Road  
+    - Flats near kharadi ?  
+    - I want properties below 2 Cr ready to move near Baner side .
     """)
     st.markdown("---")
     st.caption("Powered by LangChain ⚙️ | Chroma 🧠 | Gemini 2.5 🚀")
