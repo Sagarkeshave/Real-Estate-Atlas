@@ -14,6 +14,7 @@ app_port: 5051
 
 Flask application for real-estate insights and conversational assistance, powered by LangChain, Gemini, and Chroma DB for retrieval-augmented generation.
 
+**Deployed Project Link:** [Open Link](https://huggingface.co/spaces/SagarKeshave/real-estate-atlas)
 
 🎥 **Demo Video Flask:** [Watch on Loom](https://www.loom.com/share/b10fba2eabd546c5b86e68f81da629b2?sid=e5172890-c570-43b9-b472-a06b36953e05)
 
